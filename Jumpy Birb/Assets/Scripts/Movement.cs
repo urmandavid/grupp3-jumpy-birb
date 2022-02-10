@@ -12,12 +12,17 @@ public class Movement : MonoBehaviour
     public WallSpawner spawner;
 
     private bool callOnce;
+    private Quaternion downRotation;
+    private Quaternion forwardRotation;
 
     // Start is called before the first frame update
     void Start()
     {
         rb2d = GetComponent<Rigidbody2D>();
         rb2d.gravityScale = 0;
+
+        forwardRotation = Quaternion.Euler(0, 0, 45);
+        downRotation = Quaternion.Euler(0, 0,-85);
     }
 
     // Update is called once per frame
@@ -25,6 +30,7 @@ public class Movement : MonoBehaviour
     {
         if(Input.GetButtonDown("Jump"))
         {
+            transform.rotation = forwardRotation;
             rb2d.velocity = Vector2.zero;
             rb2d.AddForce(Vector2.up * jumpForce);
             
@@ -36,6 +42,11 @@ public class Movement : MonoBehaviour
                 rb2d.gravityScale = 3;
                 spawner.startSpawning();
             }
+        }
+
+        if(callOnce)
+        {
+            transform.rotation = Quaternion.Lerp(transform.rotation, downRotation, 2 * Time.deltaTime);
         }
     }
 
