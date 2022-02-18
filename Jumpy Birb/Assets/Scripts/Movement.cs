@@ -8,6 +8,8 @@ public class Movement : MonoBehaviour
     private Rigidbody2D rb2d;
     public float jumpForce;
 
+    private Animator anim;
+
     public Score score;
     public WallSpawner spawner;
 
@@ -18,11 +20,13 @@ public class Movement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+
+        anim = GetComponent<Animator>();
         rb2d = GetComponent<Rigidbody2D>();
         rb2d.gravityScale = 0;
 
-        forwardRotation = Quaternion.Euler(0, 0, 45);
-        downRotation = Quaternion.Euler(0, 0,-85);
+        forwardRotation = Quaternion.Euler(0, 0, 40);
+        downRotation = Quaternion.Euler(0, 0,-75);
     }
 
     // Update is called once per frame
@@ -33,7 +37,8 @@ public class Movement : MonoBehaviour
             transform.rotation = forwardRotation;
             rb2d.velocity = Vector2.zero;
             rb2d.AddForce(Vector2.up * jumpForce);
-            
+            anim.SetTrigger("Swim");
+
             if(!callOnce)
             {
                 callOnce = true;
@@ -46,7 +51,7 @@ public class Movement : MonoBehaviour
 
         if(callOnce)
         {
-            transform.rotation = Quaternion.Lerp(transform.rotation, downRotation, 2 * Time.deltaTime);
+            transform.rotation = Quaternion.Lerp(transform.rotation, downRotation, 1f * Time.deltaTime);
         }
     }
 
