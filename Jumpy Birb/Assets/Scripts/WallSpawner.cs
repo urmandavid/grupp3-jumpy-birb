@@ -4,7 +4,12 @@ using UnityEngine;
 
 public class WallSpawner : MonoBehaviour
 {
-    public float wallSpawnTime;
+    private float wallSpawnTime;
+    [Header("Spwan Times")]
+    public float wallSpawnTimeEasy;
+    public float wallSpawnTimeMedium;
+    public float wallSpawnTimeHard;
+
     public GameObject wall;
     public float height;
 
@@ -12,6 +17,27 @@ public class WallSpawner : MonoBehaviour
 
     public void startSpawning()
     {
+        GameDifficulty GD = FindObjectOfType<GameDifficulty>();
+        if(GD != null)
+        {
+            switch(GD.gameDiff)
+            {
+                case GameDifficulty.gameDifficulty.Easy:
+                    wallSpawnTime = wallSpawnTimeEasy;
+                   break;
+                case GameDifficulty.gameDifficulty.Medium:
+                    wallSpawnTime = wallSpawnTimeMedium;
+                    break;
+                case GameDifficulty.gameDifficulty.Hard:
+                    wallSpawnTime = wallSpawnTimeHard;
+                    break;
+            }
+        }
+        else
+        {
+            wallSpawnTime = wallSpawnTimeMedium;
+        }
+
         StartCoroutine(spawnWall());
     }
 

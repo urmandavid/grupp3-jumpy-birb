@@ -25,7 +25,7 @@ public class Movement : MonoBehaviour
         rb2d = GetComponent<Rigidbody2D>();
         rb2d.gravityScale = 0;
 
-        forwardRotation = Quaternion.Euler(0, 0, 40);
+        forwardRotation = Quaternion.Euler(0, 0, 25);
         downRotation = Quaternion.Euler(0, 0,-75);
     }
 
@@ -51,7 +51,7 @@ public class Movement : MonoBehaviour
 
         if(callOnce)
         {
-            transform.rotation = Quaternion.Lerp(transform.rotation, downRotation, 1f * Time.deltaTime);
+            transform.rotation = Quaternion.Lerp(transform.rotation, downRotation, 0.7f * Time.deltaTime);
         }
     }
 
