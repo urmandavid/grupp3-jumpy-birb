@@ -14867,7 +14867,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4ea03e9b067b6c468c3e2651d913890, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wallSpawnTime: 1
+  wallSpawnTimeEasy: 1.2
+  wallSpawnTimeMedium: 0.8
+  wallSpawnTimeHard: 0.4
   wall: {fileID: 259701743235870398, guid: ed86d55c6b3a3bd42b16aa1ccc0677c7, type: 3}
   height: 3
 --- !u!4 &333558551
