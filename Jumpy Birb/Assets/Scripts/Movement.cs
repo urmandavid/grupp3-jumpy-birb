@@ -9,6 +9,7 @@ public class Movement : MonoBehaviour
     public float jumpForce;
 
     private Animator anim;
+    private SfxManager sfx;
 
     public Score score;
     public WallSpawner spawner;
@@ -20,7 +21,7 @@ public class Movement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        sfx = FindObjectOfType<SfxManager>();
         anim = GetComponent<Animator>();
         rb2d = GetComponent<Rigidbody2D>();
         rb2d.gravityScale = 0;
@@ -38,7 +39,8 @@ public class Movement : MonoBehaviour
             rb2d.velocity = Vector2.zero;
             rb2d.AddForce(Vector2.up * jumpForce);
             anim.SetTrigger("Swim");
-
+            sfx.playSwimSound();
+            
             if(!callOnce)
             {
                 callOnce = true;
