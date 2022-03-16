@@ -49,7 +49,7 @@ public class WallSpawner : MonoBehaviour
             // Spawna in vägg
             GameObject spawnedWall = Instantiate(wall, transform);
             spawnedWall.transform.position = transform.position + new Vector3(0, Random.Range(-height, height), 0);
-            Destroy(spawnedWall, 5);
+            Destroy(spawnedWall, 7);
             yield return new WaitForSeconds(wallSpawnTime);
             // Vänta tills nästa väg
         }
