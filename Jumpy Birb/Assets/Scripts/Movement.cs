@@ -39,7 +39,7 @@ public class Movement : MonoBehaviour
             rb2d.velocity = Vector2.zero;
             rb2d.AddForce(Vector2.up * jumpForce);
             anim.SetTrigger("Swim");
-            //sfx.playSwimSound();
+            sfx.playSwimSound();
             
             if(!callOnce)
             {
