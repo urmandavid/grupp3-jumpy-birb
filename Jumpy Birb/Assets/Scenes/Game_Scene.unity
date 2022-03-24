@@ -15521,7 +15521,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Audio: {fileID: 475156139}
-  Click: {fileID: 8300000, guid: 0caeb34d266251444b726db9758405c3, type: 3}
+  Death: {fileID: 8300000, guid: cab0542f5eb01724db997e3f2b11736d, type: 3}
+  Jump: {fileID: 8300000, guid: 0caeb34d266251444b726db9758405c3, type: 3}
 --- !u!4 &475156141
 Transform:
   m_ObjectHideFlags: 0

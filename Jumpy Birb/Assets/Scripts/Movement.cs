@@ -61,8 +61,10 @@ public class Movement : MonoBehaviour
     {
         if (collision.gameObject.layer == LayerMask.NameToLayer("Wall"))
         {
+            sfx.playDeathSound();
             score.SetHighscore();
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            
         }
     }
 }
