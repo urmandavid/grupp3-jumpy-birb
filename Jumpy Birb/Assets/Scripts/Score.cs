@@ -8,7 +8,7 @@ public class Score : MonoBehaviour
     public TextMeshProUGUI scoreText;
     public TextMeshProUGUI highScoreText;
     public TextMeshProUGUI spaceToPlay;
-    private float score;
+    public static float score;
     private float highestScore;
 
     public bool startedJumping;

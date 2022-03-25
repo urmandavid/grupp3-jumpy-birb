@@ -9,22 +9,26 @@ public class Movement : MonoBehaviour
     public float jumpForce;
 
     private Animator anim;
+    private GameOverMenu gom;
     private SfxManager sfx;
 
     public Score score;
     public WallSpawner spawner;
 
-    private bool callOnce;
+    private bool gameStarted;
     private Quaternion downRotation;
     private Quaternion forwardRotation;
 
     // Start is called before the first frame update
     void Start()
     {
+        gom = FindObjectOfType<GameOverMenu>();
         sfx = FindObjectOfType<SfxManager>();
         anim = GetComponent<Animator>();
         rb2d = GetComponent<Rigidbody2D>();
         rb2d.gravityScale = 0;
+
+        gom.gameObject.SetActive(false);
 
         forwardRotation = Quaternion.Euler(0, 0, 25);
         downRotation = Quaternion.Euler(0, 0,-75);
@@ -41,20 +45,25 @@ public class Movement : MonoBehaviour
             anim.SetTrigger("Swim");
             sfx.playSwimSound();
             
-            if(!callOnce)
+            if(!gameStarted)
             {
-                callOnce = true;
-                score.startedJumping = true;
-                score.SetSpaceToPlayTextInactive();
-                rb2d.gravityScale = 3;
-                spawner.startSpawning();
+                StartGame();
             }
         }
 
-        if(callOnce)
+        if(gameStarted)
         {
             transform.rotation = Quaternion.Lerp(transform.rotation, downRotation, 0.7f * Time.deltaTime);
         }
+    }
+
+    private void StartGame()
+    {
+        gameStarted = true;
+        score.startedJumping = true;
+        score.SetSpaceToPlayTextInactive();
+        rb2d.gravityScale = 3;
+        spawner.startSpawning();
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -63,8 +72,8 @@ public class Movement : MonoBehaviour
         {
             sfx.playDeathSound();
             score.SetHighscore();
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-            
+            gom.gameObject.SetActive(true);
+            gom.playFadeIn();
         }
     }
 }

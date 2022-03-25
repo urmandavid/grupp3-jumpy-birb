@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class backgroundScrolling : MonoBehaviour
+public class BackgroundScrolling : MonoBehaviour
 {
 
     //Speed aplied to all backgrounds
