@@ -14,6 +14,8 @@ public class SfxManager : MonoBehaviour
 
     public static SfxManager SfxInstance;
 
+    public bool alreadyPlayed = false;
+
     private void awake() {
 
         if (SfxInstance != null && SfxInstance != this )
@@ -31,6 +33,11 @@ public class SfxManager : MonoBehaviour
     }
     public void playDeathSound()
     {
-        Audio.PlayOneShot(Death);
+        if (!alreadyPlayed)
+        {
+            Audio.PlayOneShot(Death);
+            alreadyPlayed = true;
+        }
+        
     }
 }

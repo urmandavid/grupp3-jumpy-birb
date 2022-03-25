@@ -72,7 +72,6 @@ public class Movement : MonoBehaviour
         {
             sfx.playDeathSound();
             score.SetHighscore();
-
             gom.gameObject.SetActive(true);
             gom.playFadeIn();
         }
