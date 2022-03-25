@@ -57,14 +57,19 @@ public class Movement : MonoBehaviour
         }
     }
 
+    IEnumerator NextLevelAfterWait() {
+    yield return new WaitForSeconds(0.3f);
+    
+    SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+}
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.layer == LayerMask.NameToLayer("Wall"))
         {
             sfx.playDeathSound();
             score.SetHighscore();
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-            
+            StartCoroutine(NextLevelAfterWait());
         }
     }
 }
