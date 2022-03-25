@@ -17,12 +17,18 @@ public class GameOverMenu : MonoBehaviour
     }
     public void MainMenuReturn()
     {
-        htb.scoreAdd((int)Score.score, inputField.text.ToUpper());
+        if (htb)
+        {
+            htb.scoreAdd((int)Score.score, inputField.text.ToUpper());
+        }
         SceneManager.LoadScene(0);
     }
     public void RestartGame()
     {
-        htb.scoreAdd((int)Score.score, inputField.text.ToUpper());
+        if (htb)
+        {
+            htb.scoreAdd((int)Score.score, inputField.text.ToUpper());
+        }
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 

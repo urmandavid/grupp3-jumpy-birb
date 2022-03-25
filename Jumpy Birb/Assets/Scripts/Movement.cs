@@ -62,13 +62,10 @@ public class Movement : MonoBehaviour
         gameStarted = true;
         score.startedJumping = true;
         score.SetSpaceToPlayTextInactive();
+        Score.score = 0;
         rb2d.gravityScale = 3;
         spawner.startSpawning();
     }
-	
-    SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-}
-
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.layer == LayerMask.NameToLayer("Wall"))
@@ -81,3 +78,4 @@ public class Movement : MonoBehaviour
         }
     }
 }
+
