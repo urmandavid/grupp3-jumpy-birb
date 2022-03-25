@@ -56,7 +56,7 @@ public class Movement : MonoBehaviour
             transform.rotation = Quaternion.Lerp(transform.rotation, downRotation, 0.7f * Time.deltaTime);
         }
     }
-
+	
     private void StartGame()
     {
         gameStarted = true;
@@ -65,6 +65,9 @@ public class Movement : MonoBehaviour
         rb2d.gravityScale = 3;
         spawner.startSpawning();
     }
+	
+    SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+}
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -72,6 +75,7 @@ public class Movement : MonoBehaviour
         {
             sfx.playDeathSound();
             score.SetHighscore();
+
             gom.gameObject.SetActive(true);
             gom.playFadeIn();
         }
