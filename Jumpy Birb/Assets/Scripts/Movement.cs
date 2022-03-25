@@ -70,8 +70,6 @@ public class Movement : MonoBehaviour
             sfx.playDeathSound();
             score.SetHighscore();
             StartCoroutine(NextLevelAfterWait());
-            //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-            
         }
     }
 }
