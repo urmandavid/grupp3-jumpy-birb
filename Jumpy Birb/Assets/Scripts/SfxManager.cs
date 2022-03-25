@@ -7,8 +7,10 @@ public class SfxManager : MonoBehaviour
 {
     
     public AudioSource Audio;
+
+    public AudioClip Death;
     
-    public AudioClip Click;
+    public AudioClip Jump;
 
     public static SfxManager SfxInstance;
 
@@ -25,6 +27,10 @@ public class SfxManager : MonoBehaviour
     }
     public void playSwimSound()
     {
-        Audio.PlayOneShot(Click);
+        Audio.PlayOneShot(Jump);
+    }
+    public void playDeathSound()
+    {
+        Audio.PlayOneShot(Death);
     }
 }
