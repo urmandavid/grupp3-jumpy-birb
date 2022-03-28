@@ -15305,14 +15305,14 @@ MonoBehaviour:
     serializedVersion: 2
     rgba: 4294967295
   m_fontColor: {r: 1, g: 1, b: 1, a: 1}
-  m_enableVertexGradient: 0
+  m_enableVertexGradient: 1
   m_colorMode: 3
   m_fontColorGradient:
     topLeft: {r: 1, g: 1, b: 1, a: 1}
     topRight: {r: 1, g: 1, b: 1, a: 1}
     bottomLeft: {r: 1, g: 1, b: 1, a: 1}
     bottomRight: {r: 1, g: 1, b: 1, a: 1}
-  m_fontColorGradientPreset: {fileID: 0}
+  m_fontColorGradientPreset: {fileID: 11400000, guid: 189c0c2592ea68a4a888efd9197c1da2, type: 2}
   m_spriteAsset: {fileID: 0}
   m_tintAllSprites: 0
   m_StyleSheet: {fileID: 0}
@@ -15692,6 +15692,7 @@ MonoBehaviour:
   Audio: {fileID: 475156139}
   Death: {fileID: 8300000, guid: cab0542f5eb01724db997e3f2b11736d, type: 3}
   Jump: {fileID: 8300000, guid: 0caeb34d266251444b726db9758405c3, type: 3}
+  alreadyPlayed: 0
 --- !u!4 &475156141
 Transform:
   m_ObjectHideFlags: 0
@@ -21056,14 +21057,14 @@ MonoBehaviour:
     serializedVersion: 2
     rgba: 4294967295
   m_fontColor: {r: 1, g: 1, b: 1, a: 1}
-  m_enableVertexGradient: 0
+  m_enableVertexGradient: 1
   m_colorMode: 3
   m_fontColorGradient:
     topLeft: {r: 1, g: 1, b: 1, a: 1}
     topRight: {r: 1, g: 1, b: 1, a: 1}
     bottomLeft: {r: 1, g: 1, b: 1, a: 1}
     bottomRight: {r: 1, g: 1, b: 1, a: 1}
-  m_fontColorGradientPreset: {fileID: 0}
+  m_fontColorGradientPreset: {fileID: 11400000, guid: 189c0c2592ea68a4a888efd9197c1da2, type: 2}
   m_spriteAsset: {fileID: 0}
   m_tintAllSprites: 0
   m_StyleSheet: {fileID: 0}
@@ -28010,17 +28011,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5c17d8fa54451c44b02fcaf3511a086, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseScrollSpeed: 0.01
-  backgrounds:
-  - {fileID: 2083931753}
-  - {fileID: 394175670}
-  - {fileID: 389723304}
-  - {fileID: 1875043874}
-  scrollSpeed:
-  - 0.16
-  - 0.08
-  - 0.04
-  - 0.02
 --- !u!1 &4270798368542101712
 GameObject:
   m_ObjectHideFlags: 0
