@@ -1,7 +1,6 @@
- ## Welcome to Jumpy Birb!
+ ## Welcome to Swimmy Frog!
  ## ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
  ## BUILD GUIDE:
-==========================================
 
  #Step 1.
   - Download Unity. 
