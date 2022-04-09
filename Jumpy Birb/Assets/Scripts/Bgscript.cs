@@ -5,6 +5,8 @@ using UnityEngine;
 public class Bgscript : MonoBehaviour
 {
     public static Bgscript BgInstance;
+    public AudioSource source;
+    public AudioClip audioClip;
 
     private void Awake(){
         if(BgInstance != null && BgInstance != this){
@@ -13,5 +15,12 @@ public class Bgscript : MonoBehaviour
         }
         BgInstance = this;
         DontDestroyOnLoad(this.gameObject);
+    }
+
+    private void Start()
+    {
+        source = GetComponent<AudioSource>();
+        source.clip = audioClip;
+        source.Play();
     }
 }

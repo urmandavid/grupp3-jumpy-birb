@@ -57,11 +57,9 @@ public class HighscoreTable : MonoBehaviour
         highScoreList.Add(highscore);
         highScoreList.Sort();
 
-        print("Highscore list count is : " + highScoreList.Count);
         if(highScoreList.Count > 5)
         {
             int amount = highScoreList.Count - 5;
-            print(amount);
             for (int i = 0; i < amount; i++)
             {
                 highScoreList.RemoveAt(5);
