@@ -27832,9 +27832,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5c17d8fa54451c44b02fcaf3511a086, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  easySpeed: 0.2
-  mediumSpeed: 0.4
-  hardSpeed: 0.8
+  easySpeed: 0.1
+  mediumSpeed: 0.2
+  hardSpeed: 0.4
   backgrounds:
   - {fileID: 2083931753}
   - {fileID: 394175670}
@@ -27842,9 +27842,9 @@ MonoBehaviour:
   - {fileID: 1875043874}
   scrollSpeed:
   - 0.02
-  - 0.04
-  - 0.06
+  - 0.05
   - 0.08
+  - 0.11
 --- !u!114 &735468360752010983
 MonoBehaviour:
   m_ObjectHideFlags: 0
