@@ -17,41 +17,40 @@ public class WallSpawner : MonoBehaviour
 
     public void startSpawning()
     {
-        GameDifficulty GD = FindObjectOfType<GameDifficulty>();
-        if(GD != null)
+
+        switch (GameDifficulty.gameDiff)
         {
-            switch(GD.gameDiff)
-            {
-                case GameDifficulty.gameDifficulty.Easy:
-                    wallSpawnTime = wallSpawnTimeEasy;
-                   break;
-                case GameDifficulty.gameDifficulty.Medium:
-                    wallSpawnTime = wallSpawnTimeMedium;
-                    break;
-                case GameDifficulty.gameDifficulty.Hard:
-                    wallSpawnTime = wallSpawnTimeHard;
-                    break;
-            }
-        }
-        else
-        {
-            wallSpawnTime = wallSpawnTimeMedium;
+            case GameDifficulty.gameDifficulty.Easy:
+                wallSpawnTime = wallSpawnTimeEasy;
+                break;
+            case GameDifficulty.gameDifficulty.Medium:
+                wallSpawnTime = wallSpawnTimeMedium;
+                break;
+            case GameDifficulty.gameDifficulty.Hard:
+                wallSpawnTime = wallSpawnTimeHard;
+                break;
         }
 
         StartCoroutine(spawnWall());
     }
-
     public IEnumerator spawnWall()
     {
-        while(true)
+        while (true)
         {
             yield return null;
             // Spawna in vägg
             GameObject spawnedWall = Instantiate(wall, transform);
             spawnedWall.transform.position = transform.position + new Vector3(0, Random.Range(-height, height), 0);
-            Destroy(spawnedWall, 7);
+            StartCoroutine(DestroyAfterTime(spawnedWall, 7));
             yield return new WaitForSeconds(wallSpawnTime);
             // Vänta tills nästa väg
         }
+    }
+    public IEnumerator DestroyAfterTime(GameObject go ,float time)
+    {
+        yield return null;
+        yield return new WaitForSeconds(time);
+        Destroy(go);
+
     }
 }

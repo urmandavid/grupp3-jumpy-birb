@@ -19,7 +19,7 @@ public class GameOverMenu : MonoBehaviour
     {
         if (htb)
         {
-            htb.scoreAdd((int)Score.score, inputField.text.ToUpper());
+            htb.addHighScore((int)Score.score, inputField.text.ToUpper());
         }
         SceneManager.LoadScene(0);
     }
@@ -27,7 +27,7 @@ public class GameOverMenu : MonoBehaviour
     {
         if (htb)
         {
-            htb.scoreAdd((int)Score.score, inputField.text.ToUpper());
+            htb.addHighScore((int)Score.score, inputField.text.ToUpper());
         }
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }

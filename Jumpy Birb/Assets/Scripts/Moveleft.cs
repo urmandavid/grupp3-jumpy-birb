@@ -9,32 +9,31 @@ public class Moveleft : MonoBehaviour
     public float speedEasy;
     public float speedMedium;
     public float speedHard;
+
+    private Movement player;
     // Update is called once per frame
     private void Start()
     {
-        GameDifficulty GD = FindObjectOfType<GameDifficulty>();
-        if (GD != null)
+        player = FindObjectOfType<Movement>();
+        switch (GameDifficulty.gameDiff)
         {
-            switch (GD.gameDiff)
-            {
-                case GameDifficulty.gameDifficulty.Easy:
-                    speed = speedEasy;
-                    break;
-                case GameDifficulty.gameDifficulty.Medium:
-                    speed = speedMedium;
-                    break;
-                case GameDifficulty.gameDifficulty.Hard:
-                    speed = speedHard;
-                    break;
-            }
-        }
-        else
-        {
-            speed = speedMedium;
+            case GameDifficulty.gameDifficulty.Easy:
+                speed = speedEasy;
+                break;
+            case GameDifficulty.gameDifficulty.Medium:
+                speed = speedMedium;
+                break;
+            case GameDifficulty.gameDifficulty.Hard:
+                speed = speedHard;
+                break;
+
         }
     }
     void Update()
     {
-        transform.Translate(Vector2.left * speed * Time.deltaTime);
+        if (!player.died)
+        {
+            transform.Translate(Vector2.left * speed * Time.deltaTime);
+        }
     }
 }

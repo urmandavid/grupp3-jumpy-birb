@@ -17,14 +17,13 @@ public class HighscoreTable : MonoBehaviour
     // Represents a single Highscore entry
     public void Start()
     {
-        OnLevelWasLoaded(1);
         string jsonString = PlayerPrefs.GetString("highscoreTable");
         Highscores highscore = JsonUtility.FromJson<Highscores>(jsonString);
         if (highscore != null)
         {
             foreach (HighscoreEntry high in highscore.highscores)
             {
-                scoreAdd(high.score, high.name);
+                addHighScore(high.score, high.name);
             }
         }
     }
@@ -57,6 +56,17 @@ public class HighscoreTable : MonoBehaviour
 
         highScoreList.Add(highscore);
         highScoreList.Sort();
+
+        print("Highscore list count is : " + highScoreList.Count);
+        if(highScoreList.Count > 5)
+        {
+            int amount = highScoreList.Count - 5;
+            print(amount);
+            for (int i = 0; i < amount; i++)
+            {
+                highScoreList.RemoveAt(5);
+            }
+        }
 
         UIHighScore(highscore);
     }
@@ -92,23 +102,6 @@ public class HighscoreTable : MonoBehaviour
             scoreTexts[i].SetText(highScoreList[i].score.ToString());
             names[i].SetText(highScoreList[i].name);
         }
-    }
-
-    public void scoreAdd(int score, String name)
-    {
-        addHighScore(score, name);
-    }
-
-    public void OnLevelWasLoaded(int level)
-    {
-        /*
-
-        highScoreList.Clear();
-        scoreTexts.Clear();
-        names.Clear();
-        posTexts.Clear();
-
-        */
     }
 
 }

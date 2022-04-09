@@ -5,7 +5,7 @@ using UnityEngine;
 public class GameDifficulty : MonoBehaviour
 {
     public enum gameDifficulty {Easy, Medium, Hard}
-    public gameDifficulty gameDiff;
+    public static gameDifficulty gameDiff;
 
     public void setDifficulty(string gameDiffText)
     {

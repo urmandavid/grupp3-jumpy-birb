@@ -15,6 +15,8 @@ public class Movement : MonoBehaviour
     public Score score;
     public WallSpawner spawner;
 
+    [HideInInspector] public bool died;
+
     private bool gameStarted;
     private Quaternion downRotation;
     private Quaternion forwardRotation;
@@ -31,32 +33,34 @@ public class Movement : MonoBehaviour
         gom.gameObject.SetActive(false);
 
         forwardRotation = Quaternion.Euler(0, 0, 25);
-        downRotation = Quaternion.Euler(0, 0,-75);
+        downRotation = Quaternion.Euler(0, 0, -75);
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetButtonDown("Jump"))
+        if (!died)
         {
-            transform.rotation = forwardRotation;
-            rb2d.velocity = Vector2.zero;
-            rb2d.AddForce(Vector2.up * jumpForce);
-            anim.SetTrigger("Swim");
-            sfx.playSwimSound();
-            
-            if(!gameStarted)
+            if (Input.GetButtonDown("Jump"))
             {
-                StartGame();
+                transform.rotation = forwardRotation;
+                rb2d.velocity = Vector2.zero;
+                rb2d.AddForce(Vector2.up * jumpForce);
+                anim.SetTrigger("Swim");
+                sfx.playSwimSound();
+
+                if (!gameStarted)
+                {
+                    StartGame();
+                }
             }
         }
-
-        if(gameStarted)
-        {
-            transform.rotation = Quaternion.Lerp(transform.rotation, downRotation, 0.7f * Time.deltaTime);
-        }
+            if (gameStarted)
+            {
+                transform.rotation = Quaternion.Lerp(transform.rotation, downRotation, 0.7f * Time.deltaTime);
+            }
     }
-	
+
     private void StartGame()
     {
         gameStarted = true;
@@ -70,10 +74,14 @@ public class Movement : MonoBehaviour
     {
         if (collision.gameObject.layer == LayerMask.NameToLayer("Wall"))
         {
+            died = true;
+            spawner.StopAllCoroutines();
+            score.startedJumping = false;
             sfx.playDeathSound();
             score.SetHighscore();
             gom.gameObject.SetActive(true);
             gom.playFadeIn();
+            rb2d.gravityScale = 7;
         }
     }
 }
