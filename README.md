@@ -1,7 +1,6 @@
-
- ##Welcome to Jumpy Birb!
+ ## Welcome to Jumpy Birb!
  ## ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
- ##BUILD GUIDE:
+ ## BUILD GUIDE:
 ==========================================
 
  #Step 1.
@@ -28,5 +27,7 @@
    -   Hampus M. Olsson
    -   Oskar Johansson
    -   David Urman
+
 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
+  
    @ Java21, Yrgo(2022)
