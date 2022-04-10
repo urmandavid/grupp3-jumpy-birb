@@ -12,6 +12,11 @@ public class GameDifficulty : MonoBehaviour
 
     private void Start()
     {
+        if (PlayerPrefs.GetString("gameDiff") != null)
+        {
+            gameDifficulty savedGameDiff = JsonUtility.FromJson<gameDifficulty>(PlayerPrefs.GetString("gameDiff"));
+            gameDiff = savedGameDiff;
+        }
         SetDifficultyText();
     }
 
@@ -33,10 +38,16 @@ public class GameDifficulty : MonoBehaviour
                 break;
         }
         SetDifficultyText();
+        SaveDifficulty();
     }
 
     private void SetDifficultyText()
     {
         difficultyText.SetText("Current Difficulty : " + gameDiff);
+    }
+    private void SaveDifficulty()
+    {
+        string json = JsonUtility.ToJson(gameDiff);
+        PlayerPrefs.SetString("gameDiff", json);
     }
 }
