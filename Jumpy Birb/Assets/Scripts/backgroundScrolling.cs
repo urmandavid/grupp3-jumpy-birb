@@ -15,11 +15,15 @@ public class BackgroundScrolling : MonoBehaviour
     public GameObject[] backgrounds;
     public float[] scrollSpeed;
 
+    private float time;
+
     private Movement player;
+    private Score score;
 
     private void Start()
     {
         player = FindObjectOfType<Movement>();
+        score = FindObjectOfType<Score>();
         switch (GameDifficulty.gameDiff)
         {
             case GameDifficulty.gameDifficulty.Easy:
@@ -35,15 +39,20 @@ public class BackgroundScrolling : MonoBehaviour
     }
     void FixedUpdate()
     {
-        if (!player.died)
+        if (!player.died && score.startedJumping)
         {
             for (int i = 0; i < backgrounds.Length; i++)
             {
+                time += Time.deltaTime / 4;
                 Renderer rend = backgrounds[i].GetComponent<Renderer>();
-                float offset = Time.time * (scrollSpeed[i] + baseScrollSpeed);
+                float offset = time * (scrollSpeed[i] + baseScrollSpeed);
 
                 rend.material.SetTextureOffset("_MainTex", new Vector2(offset, 0));
             }
+        }
+        else
+        {
+            time = 0;
         }
     }
 }
