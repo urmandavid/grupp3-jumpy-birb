@@ -47,6 +47,7 @@ public class Movement : MonoBehaviour
                 transform.rotation = forwardRotation;
                 rb2d.velocity = Vector2.zero;
                 rb2d.AddForce(Vector2.up * jumpForce);
+                rb2d.angularVelocity = 0;
                 anim.SetTrigger("Swim");
                 sfx.playSwimSound();
 
@@ -84,7 +85,10 @@ public class Movement : MonoBehaviour
             gom.gameObject.SetActive(true);
             gom.playFadeIn();
 
+            rb2d.velocity = Vector2.zero;
+            rb2d.angularVelocity = 0;
             rb2d.gravityScale = 0.5f;
+            rb2d.AddForce(Vector2.up * (jumpForce / 4));
             gameObject.GetComponent<CircleCollider2D>().enabled = false;
             anim.SetBool("Died", true);
             playerBubbles.SetActive(true);
