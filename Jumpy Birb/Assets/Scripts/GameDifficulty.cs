@@ -12,7 +12,7 @@ public class GameDifficulty : MonoBehaviour
 
     private void Start()
     {
-        if (PlayerPrefs.GetString("gameDiff") != null)
+        if (PlayerPrefs.HasKey("gameDiff"))
         {
             gameDifficulty savedGameDiff = JsonUtility.FromJson<gameDifficulty>(PlayerPrefs.GetString("gameDiff"));
             gameDiff = savedGameDiff;

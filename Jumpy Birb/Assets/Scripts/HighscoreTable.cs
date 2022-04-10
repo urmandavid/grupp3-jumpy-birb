@@ -15,7 +15,7 @@ public class HighscoreTable : MonoBehaviour
     public List<TextMeshProUGUI> posTexts;
 
     // Represents a single Highscore entry
-    public void Start()
+    public void Awake()
     {
         string jsonString = PlayerPrefs.GetString("highscoreTable");
         Highscores highscore = JsonUtility.FromJson<Highscores>(jsonString);

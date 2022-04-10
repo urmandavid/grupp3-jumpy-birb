@@ -10,12 +10,15 @@ public class Score : MonoBehaviour
     public TextMeshProUGUI highScoreText;
     public TextMeshProUGUI spaceToPlay;
     public static float score;
-    private float highestScore;
+    private int highestScore;
 
     public bool startedJumping;
+    private HighscoreTable ht;
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
+        ht = FindObjectOfType<HighscoreTable>();
+        print(ht.name);
         getHighscore();
     }
 
@@ -38,14 +41,20 @@ public class Score : MonoBehaviour
     {
         if (highestScore <= score)
         {
-            highestScore = score;
+            highestScore = (int)score;
             highScoreText.SetText("Highscore : " + ((int)score).ToString());
-            PlayerPrefs.SetFloat("Highscore", score);
         }
     }
     public void getHighscore()
     {
-        highestScore = PlayerPrefs.GetFloat("Highscore");
-        highScoreText.SetText("Highscore : " + ((int)score).ToString());
+        if(ht.highScoreList.Count > 0)
+        {
+            highestScore = ht.highScoreList[0].score;
+            highScoreText.SetText("Highscore : " + highestScore.ToString());
+        }
+        else
+        {
+            highScoreText.SetText("Highscore : 0");
+        }
     }
 }
