@@ -39,13 +39,13 @@ public class Score : MonoBehaviour
         if (highestScore <= score)
         {
             highestScore = score;
-            highScoreText.SetText("Highscore : " + Mathf.Round(score).ToString());
+            highScoreText.SetText("Highscore : " + ((int)score).ToString());
             PlayerPrefs.SetFloat("Highscore", score);
         }
     }
     public void getHighscore()
     {
         highestScore = PlayerPrefs.GetFloat("Highscore");
-        highScoreText.SetText("Highscore : " + Mathf.Round(highestScore).ToString());
+        highScoreText.SetText("Highscore : " + ((int)score).ToString());
     }
 }

@@ -101,5 +101,17 @@ public class HighscoreTable : MonoBehaviour
             names[i].SetText(highScoreList[i].name);
         }
     }
+    public void DeleteHighScores()
+    {
+        PlayerPrefs.DeleteAll();
+        posTexts.Clear();
+        scoreTexts.Clear();
+        names.Clear();
+
+        foreach (Transform child in container.transform)
+        {
+            Destroy(child.gameObject);
+        }
+    }
 
 }
