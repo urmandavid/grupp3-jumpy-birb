@@ -6,6 +6,7 @@ using TMPro;
 public class Score : MonoBehaviour
 {
     public TextMeshProUGUI scoreText;
+    public TextMeshProUGUI scoreOnDeath;
     public TextMeshProUGUI highScoreText;
     public TextMeshProUGUI spaceToPlay;
     public static float score;
@@ -24,7 +25,8 @@ public class Score : MonoBehaviour
         if (startedJumping)
         {
             score += Time.deltaTime * 25;
-            scoreText.SetText(Mathf.Round(score).ToString());
+            scoreOnDeath.SetText(((int)score).ToString());
+            scoreText.SetText(((int)score).ToString());
             SetHighscore();
         }
     }

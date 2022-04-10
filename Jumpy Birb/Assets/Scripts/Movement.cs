@@ -7,6 +7,7 @@ public class Movement : MonoBehaviour
 {
     private Rigidbody2D rb2d;
     public float jumpForce;
+    public GameObject playerBubbles;
 
     private Animator anim;
     private GameOverMenu gom;
@@ -54,11 +55,12 @@ public class Movement : MonoBehaviour
                     StartGame();
                 }
             }
-        }
             if (gameStarted)
             {
                 transform.rotation = Quaternion.Lerp(transform.rotation, downRotation, 0.7f * Time.deltaTime);
             }
+        }
+
     }
 
     private void StartGame()
@@ -81,7 +83,11 @@ public class Movement : MonoBehaviour
             score.SetHighscore();
             gom.gameObject.SetActive(true);
             gom.playFadeIn();
-            rb2d.gravityScale = 7;
+
+            rb2d.gravityScale = 0.5f;
+            gameObject.GetComponent<CircleCollider2D>().enabled = false;
+            anim.SetBool("Died", true);
+            playerBubbles.SetActive(true);
         }
     }
 }
