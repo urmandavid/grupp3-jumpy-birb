@@ -1,4 +1,4 @@
- ![swimmyfrog](grupp3-jumpy-birb/swimmyfrog.png)
+![swimmyfrog](urmandavid/grupp3-jumpy-birb/swimmyfrog.png?raw=true "swimmyfrog")
  
  ## Welcome to Swimmy Frog!
  ## ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
