@@ -1,3 +1,5 @@
+ ![Swimmy Frog](swimmyfrog.jpg)
+ 
  ## Welcome to Swimmy Frog!
  ## ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
  ## BUILD GUIDE:
