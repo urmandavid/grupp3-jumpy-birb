@@ -1,5 +1,3 @@
-![swimmyfrog](swimmyfrog.png)
- 
  ## Welcome to Swimmy Frog!
  ## ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
  ## BUILD GUIDE:
@@ -36,5 +34,5 @@
    -   David Urman
 
 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
-  
+  ![swimmyfrog](swimmyfrog.png)
    @ Java21, Yrgo(2022)
