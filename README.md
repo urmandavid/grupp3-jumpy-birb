@@ -1,4 +1,4 @@
- ![Swimmy Frog](swimmyfrog.jpg)
+ ![Swimmy Frog](grupp3-jumpy-birb/swimmyfrog.png)
  
  ## Welcome to Swimmy Frog!
  ## ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
